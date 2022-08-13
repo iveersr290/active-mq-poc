@@ -28,7 +28,7 @@ payload]]></ee:set-payload>
 	<flow name="mq-poc-1Flow1" doc:id="e2550c07-2fcb-4a37-8b27-22357ad94128" >
 		<http:listener doc:name="Listener" doc:id="d31f6d95-0ccf-4f85-8526-82d952100017" config-ref="HTTP_Listener_config" path="/mq-consume"/>
 		<anypoint-mq:consume doc:name="Consume" doc:id="e0729e71-eeb4-451a-a2ec-273e2bdb10e2" config-ref="Anypoint_MQ_Config" destination="demo-queue-29"/>
-		<ee:transform doc:name="Copy_of_Transform Message" doc:id="04221051-8b0e-45b9-baeb-830ee0421254" >
+		<ee:transform doc:name="Transform Message" doc:id="04221051-8b0e-45b9-baeb-830ee0421254" >
 			<ee:message >
 				<ee:set-payload ><![CDATA[%dw 2.0
 output application/json
@@ -36,6 +36,6 @@ output application/json
 payload]]></ee:set-payload>
 			</ee:message>
 		</ee:transform>
-		<logger level="INFO" doc:name="Copy_of_Logger" doc:id="d73fd98b-d822-4821-bb64-af9cd088294a" message="#[payload]" />
+		<logger level="INFO" doc:name="Logger" doc:id="d73fd98b-d822-4821-bb64-af9cd088294a" message="#[payload]" />
 	</flow>
 </mule>
